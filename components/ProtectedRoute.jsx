@@ -1,4 +1,3 @@
-// components/ProtectedRoute.js
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { isAuthenticated } from 'services/authService';
@@ -8,7 +7,6 @@ const ProtectedRoute = ({ children }) => {
 
   useEffect(() => {
     if (!isAuthenticated()) {
-      // Redirect to the login page or show an error message
       router.push('/auth/login');
     }
   }, []);

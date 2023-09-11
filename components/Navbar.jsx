@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <div>
       <div>
-        <nav className=' bg-teal-700 text-neutral-200 p-5'>
+        <nav className=''>
           <ul className='flex font-light w-1/2 justify-between'>
             <li>Role</li>
             <li>Home</li>

@@ -1,34 +1,26 @@
 'use client'
-import Image from 'next/image'
+
 import ProtectedRoute from 'components/ProtectedRoute';
-import Link from 'next/link';
-import { logout } from 'services/authService';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import Navbar from '../../components/Navbar';
 
 export default function Home() {
-  const router = useRouter();
   const [isMounted, setIsMounted] = useState(false);
 
-  const handlelogout = async (e) => {
-    e.preventDefault();
-    if (logout()) {
-      router.push('/login');
-    }
-  }
-  useEffect(() => {
-    setIsMounted(true); // Set the component as mounted when it's mounted
-  }, []);
+  useEffect(() => {setIsMounted(true);});
   
   return (
     <div>
       {isMounted && (
         <ProtectedRoute>
           <div>
-            <Navbar/>
-            <h1>Dashboard Page (Protected)</h1>
-            <p>This page is protected and can only be accessed by authenticated users.</p>
+            <div className='text-slate-900 text-base font-medium tracking-tight'>
+              <Navbar/>
+            </div>
+            <h3 className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">Writes Upside-Down</h3>
+            <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+              The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
+            </p>
           </div>
         </ProtectedRoute>
       )}

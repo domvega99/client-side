@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 
 
 export const logout = () => {
+
   if (typeof localStorage !== 'undefined') {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -13,14 +14,14 @@ export const logout = () => {
 };
 
 export const isAuthenticated = () => {
-  // Check if the user is authenticated by verifying the token
+
   if (typeof localStorage !== 'undefined') {
     const token = localStorage.getItem('token');
-
     if (token) {
       const decodedToken = jwt.decode(token);
-
+      
       if (decodedToken) {
+        console.log(decodedToken)
         return true;
       }
     }
@@ -28,3 +29,6 @@ export const isAuthenticated = () => {
 
   return false;
 };
+
+
+

@@ -35,7 +35,7 @@ const Login = () => {
           const data = await response.data;
           
           if (data.password == 'password' || data.password_reset != null || data.require_reset == true){
-            // localStorage.setItem('token', data.token);
+            localStorage.setItem('token', data.token);
             window.location.href = '/auth/changepass';
             console.log('Login successful:', data);
           } 
@@ -66,8 +66,7 @@ const Login = () => {
           Development Businesss Automation System
         </div>
         <div className='flex justify-center'>
-          <div className=' bg-red-500 text-white p-2 rounded-full mt-2 text-xs'>
-            {error}
+          <div className=' text-red-500 text-xs italic mt-5'>
             {errorFields && (
               <div>
                 {Object.values(errorFields).map((item, index) => (
@@ -87,6 +86,7 @@ const Login = () => {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder='Username'/>
+                {error && <p className="text-red-500 text-xs italic">{error}</p>}
               </div>
             </div>
             <div className='mb-2'>

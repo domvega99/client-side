@@ -2,10 +2,14 @@
 
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
+import ProtectedRoute from 'components/ProtectedRoute';
 
 export default function Home() {
 
   const [userData, setUsers] = useState([]);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {setIsMounted(true);});
 
   useEffect(() => {
     axios.get(`http://localhost:8080/api/users`).then(res =>{
@@ -18,6 +22,8 @@ export default function Home() {
 
   return (
     <main className=''>
+      {isMounted && (
+      <ProtectedRoute>
       <div className='w-full'>
         <div>
             <input placeholder='Username'></input>
@@ -45,6 +51,7 @@ export default function Home() {
             </tbody>
         </table>
       </div>
+      </ProtectedRoute>)}
     </main>
   )
 }
