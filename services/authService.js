@@ -8,24 +8,28 @@ import jwt from 'jsonwebtoken';
 // };
 
 export const logout = () => {
-  
+  if (typeof window !== "undefined") {
   localStorage.removeItem('token');
   localStorage.removeItem('user');
   window.location.href = '/auth/login';
-
+  }
 };
 
 export const isAuthenticated = () => {
   // Check if the user is authenticated by verifying the token
-  const token = localStorage.getItem('token');
 
-  if (token) {
-    const decodedToken = jwt.decode(token);
+    if (localStorage != undefined) {
+      const token = localStorage.getItem('token');
 
-    if (decodedToken) {
-      return true;
-    }
-  }
+        if (token) {
+          const decodedToken = jwt.decode(token);
 
-  return false;
+          if (decodedToken) {
+            return true;
+          }
+        }
+
+        return false;
+      }
+    
 };
