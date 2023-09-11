@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { isAuthenticated } from 'services/authService';
-import ProtectedRoute from '../../../../components/ProtectedRoute';
+// import { isAuthenticated } from 'services/authService';
+// import ProtectedRoute from '../../../../components/ProtectedRoute';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
 const page = () => {
