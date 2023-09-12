@@ -10,6 +10,9 @@ import { useRouter } from 'next/navigation';
 const Navbar = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {setOpen(true);};
 
   const handlelogout = async (e) => {
     setLoading(true);
@@ -22,15 +25,13 @@ const Navbar = () => {
   return (
     <div>
       <div>
-        <nav className=''>
-          <ul className='flex font-light w-1/2 justify-between'>
-            <li>Role</li>
-            <li>Home</li>
-            <li>Location</li>
-            <li>User</li>
-            <li><button type='button' onClick={handlelogout}>Logout</button></li>
-          </ul>
-        </nav>
+        <ul className="navbar">
+          <li><Link href="#">Home</Link></li>
+          <li><Link href="#">Subsystems</Link></li>
+          <li><Link href="#">Role</Link></li>
+          <li><Link href="/users">Users</Link></li>
+          <li><button type='button' onClick={handlelogout}>Logout</button></li>
+        </ul>
       </div>
     </div>
   )

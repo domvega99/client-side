@@ -14,7 +14,7 @@ export default function Home() {
       {isMounted && (
         <ProtectedRoute>
           <div>
-            <div className='text-slate-900 text-base font-medium tracking-tight'>
+            <div className='text-slate-900 text-base font-medium tracking-tight p-5'>
               <Navbar/>
             </div>
             <h3 className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">Writes Upside-Down</h3>
