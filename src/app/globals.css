@@ -10,6 +10,15 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+  padding: 20px;
+  color: white;
+  width: 50%;
+}
+
+.sidebar {
+  padding: 20px;
+  color: white;
+  width: 20%;
 }
 /* :root {
   --foreground-rgb: 0, 0, 0;

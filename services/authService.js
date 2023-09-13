@@ -21,7 +21,7 @@ export const isAuthenticated = () => {
       const decodedToken = jwt.decode(token);
       
       if (decodedToken) {
-        console.log(decodedToken)
+        // console.log(decodedToken)
         return true;
       }
     }
