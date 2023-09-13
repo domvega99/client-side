@@ -5,16 +5,27 @@ import { isAuthenticated } from 'services/authService';
 const ProtectedRoute = ({ children }) => {
   const router = useRouter();
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   if (!isAuthenticated()) {
+  //     router.push('/auth/login');
+  //   }
+  // }, []);
+
+  // if (isAuthenticated()) {
+  //   return children;
+  // } else {
+  //   return false;
+  // }
+
     if (!isAuthenticated()) {
       router.push('/auth/login');
     }
-  }, []);
+
 
   if (isAuthenticated()) {
     return children;
   } else {
-    return null;
+    return false;
   }
 };
 
